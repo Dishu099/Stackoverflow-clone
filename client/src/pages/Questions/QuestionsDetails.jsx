@@ -74,7 +74,7 @@ const Navigate = useNavigate()
 const dispatch = useDispatch()
 const User = useSelector((state) => (state.currentUserReducer))
 const location = useLocation()
-const url = 'http://localhost:3000'
+const url = 'https://stackoverflow-dishita.netlify.app'
 console.log(location)
 
 const handlePostAns = (e, answerLength) => {
