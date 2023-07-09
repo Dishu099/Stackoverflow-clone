@@ -6,7 +6,12 @@ const userSchema = mongoose.Schema({
     password: {type: String, required: true},
     about: {type: String},
     tags: {type: [String] },
-    joinedOn: {type: Date, default: Date.now }
-})
+    joinedOn: {type: Date, default: Date.now },
+    profileImage: { type: String },
+    followings: { type: [String], default: [] },
+    followers: { type: [String], default: [] }
+},
+{ timestamps: true }
+)
 
 export default mongoose.model("User", userSchema)

@@ -1,0 +1,141 @@
+*{
+    box-sizing: border-box;
+}
+
+.app-wrapper {
+	/* display: flex;  
+    flex-wrap: wrap;  
+	align-items: center;
+	justify-content: space-around;
+    height: 80vh;
+    padding: 2rem;
+    margin-top: 50px; */
+    margin: 100px 100px;
+     max-width: 1090px;
+  width: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+   
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    position: relative;
+    width: 17rem;
+    text-align: center;
+}
+
+
+.card .most-popular {
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #9b59b6;
+    color: #fff;
+    padding: .25em 1rem;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+   
+.basic {
+    border: 10px solid #3498db;   
+    box-shadow: 2px 2px 10px 2px #09a4bb;
+}
+.basic h2{
+    font-weight: 1000;
+    color: #09a4bb;
+    font-style: italic;
+}
+.basic:hover{
+    background-color: #cbdaeb;
+}
+   
+.medium {
+    border: 10px solid silver; 
+    box-shadow: 2px 2px 10px 2px silver; 
+}
+.medium h2{
+    color: #cec9d0;
+    font-style: italic;
+    font-weight: 1000;
+}
+
+.medium:hover{
+    background-color: #efede1;
+}
+
+.premium{
+    border: 10px solid  #f1f51f; 
+    box-shadow: 2px 2px 10px 2px #bab107;
+}
+.premium h2{
+    color: #e2d220;
+    font-style: italic;
+    font-weight: 1000;
+}
+.premium:hover{
+    background-color: #f2f47f;
+  
+}
+
+.card,
+.card-description,
+.card-billing,
+.card-features,
+.card-action {
+    padding: 15px;
+}
+  
+.card-description h2{
+    font-size: 26px;
+    margin-bottom: .5rem;
+}
+  
+.card-billing {
+    border-radius: 50px;
+    background-color: rgb(223, 215, 215);
+    width: 50%;
+    height: 25%;
+    font-size:smaller;
+}
+
+.card-billing p{
+    margin-bottom: .5rem;
+}
+  
+.card-billing .price {
+    font-size: 32px;
+    font-weight: 700;
+}
+  
+.card-features {
+    min-height: 70px;
+}
+
+.card-features ul li {
+    list-style-type: square;
+    text-align: left;
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+  
+/* .card-action > button {
+    border: 3px solid #3498db;
+    background-color: transparent;
+    color: #3498db;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .5rem 0;
+    width: 100%;
+    transition: .3s ease all;
+} */
+
+/* .card-action > button:hover {
+    transition: .3s ease all;
+    background-color: #3498db;
+    color: #fff;
+} */

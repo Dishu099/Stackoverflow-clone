@@ -29,3 +29,52 @@ export const updateProfile = async (req, res) => {
         res.status(405).json({ message: error.message})
       }
 }
+export const follow = async (req, res) => {
+  const currentUserId = req.userId;
+  const friendId = req.params.id;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      currentUserId,
+      {
+        $addToSet: { followings: friendId },
+      },
+      { new: true }
+    );
+    await User.findByIdAndUpdate(
+      friendId,
+      {
+        $addToSet: { followers: currentUserId },
+      },
+      { new: true }
+    );
+    const { password, ...user_data } = updatedUser._doc;
+    res.status(200).json(user_data);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export const unfollow = async (req, res) => {
+  const currentUserId = req.userId;
+  const friendId = req.params.id;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      currentUserId,
+      {
+        $pull: { followings: friendId },
+      },
+      { new: true }
+    );
+    await User.findByIdAndUpdate(
+      friendId,
+      {
+        $pull: { followers: currentUserId },
+      },
+      { new: true }
+    );
+    const { password, ...user_data } = updatedUser._doc;
+    res.status(200).json(user_data);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};

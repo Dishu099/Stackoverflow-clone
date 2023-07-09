@@ -14,18 +14,39 @@
   padding: 24px;
   box-sizing: border-box;
 }
-.open-chatbot {
-  position: sticky;
-  bottom: 5%;
-  left: 85%;
-  background-color: #ef8236;
-  border: none;
-  padding: 20px;
-  border-radius: 10px;
+.home-container-1 .chatbot-button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 1rem;
+  background: #0080ff;
+  padding: 1rem;
+  box-shadow: 0 0 15px -5px #ccc;
+  border: 1px solid #ddd;
+}
+.home-container-1 .chatbot-button .comment-button {
+  color: #fff;
+  font-size: 1.5em;
 }
 
-.open-chatbot:hover {
-  background-color: #ef83369a;
+@media screen and (max-width: 400px) {
+  .home-container-2{
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+  }
+
+  
+}
+
+@media screen and (max-width: 980px) {
+  .home-container-2{
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+  }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBirthdayCake, faPen } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +10,7 @@ import Avatar from '../../components/Avatar/Avatar'
 import EditProfileForm from './EditProfileForm'
 import ProfileBio from './ProfileBio'
 import './UsersProfile.css'
+import { followUser, unfollowUser } from "../../actions/users";
  
 const UserProfile = () => {
 
@@ -17,8 +18,17 @@ const UserProfile = () => {
     const users = useSelector(( state) => state.usersReducer)
     const currentProfile = users.filter((user) => user._id === id)[0]
     const currentUser = useSelector((state) => state.currentUserReducer)
-
+    const dispatch = useDispatch();
     const [Switch, setSwitch] = useState(false)
+
+    const followingUser = async (userid) => {
+        dispatch(followUser(userid));
+      };
+    
+      const unfollowingUser = async (userid) => {
+        dispatch(unfollowUser(userid));
+      };
+
   return (
     <div className='home-container-1'>
       <LeftSidebar />
@@ -32,6 +42,14 @@ const UserProfile = () => {
                     <div className="user-name">
                         <h1>{currentProfile?.name}</h1>
                         <p><FontAwesomeIcon icon={faBirthdayCake} /> Joined {moment(currentProfile?.joinedOn).fromNow()}</p>
+                        {currentUser?.result._id !== id &&
+                            (currentProfile?.followers?.includes(
+                                currentUser?.result._id
+                        ) ? (
+                            <button className="follow-button" onClick={() => unfollowingUser(id)}>Unfollow</button>
+                        ) : (
+                            <button className="follow-button" onClick={() => followingUser(id)}>Follow</button>
+                        ))}
                     </div>
                 </div>
                 {

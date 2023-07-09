@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: 'https://stack-overflow-clone-fpby.onrender.com'})
+const API = axios.create({baseURL: 'https://stack-overflow-clone-fpby.onrender.com/'})
 
 API.interceptors.request.use((req)  => {
     if(localStorage.getItem('Profile')){
@@ -22,3 +22,12 @@ export const deleteAnswer=(id, answerId, noOfAnswers)=>API.patch(`/answer/delete
 
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
 export const updatedProfile = (id, updateData) => API.patch(`/user/update/${id}`, updateData)
+export const followUser = (userId) => API.put(`/user/follow/${userId}`);
+export const unfollowUser = (userId) => API.put(`/user/unfollow/${userId}`);
+
+export const sharePost = (postData) => API.post("/post/", postData);
+export const getAllPosts = () => API.get("/post/");
+export const likePost = (postId) => API.put(`/post/like/${postId}`);
+export const dislikePost = (postId) => API.put(`/post/dislike/${postId}`);
+export const deletePost = (postId) => API.delete(`/post/${postId}`);
+export const commentPost = (postId, commentText) => API.put(`/post/comment/${postId}`, { comment: commentText });
